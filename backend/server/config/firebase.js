@@ -1,15 +1,17 @@
+require('dotenv').config()
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAVNqiE67PiZh2zXf9pLuz9EaZcxAdS6sk",
-    authDomain: "home-forum123.firebaseapp.com",
-    databaseURL: "https://home-forum123.firebaseio.com",
-    projectId: "home-forum123",
-    storageBucket: "home-forum123.appspot.com",
-    messagingSenderId: "8101885066",
-    appId: "1:8101885066:web:ceaa66a6caf1b58bd32973",
-    measurementId: "G-9H59WYWNM1"
+    var firebaseConfig = {
+    apiKey: process.env.APIKEY,
+    authDomain: process.env.AUTHDOMAIN,
+    databaseURL: process.env.DATABASEURL,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGING,
+    appId: process.env.APIID,
+    measurementId: process.env.MEASUREMENTID
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
