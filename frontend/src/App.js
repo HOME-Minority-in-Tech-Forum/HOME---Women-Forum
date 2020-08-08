@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "normalize.css/normalize.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LandingPage from "./pages/LandingPage";
+import Learn from "./pages/Learn";
+import Programs from "./pages/Programs";
+import Companies from "./pages/Companies";
+import NotFoundPage from "./pages/NotFoundPage";
+import NavBar from "./components/NavBar";
+
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          {/* <div>
+            <Switch>
+              <Route exact={true} path="/" component={LandingPage} />
+              <Route exact={true} path="/learn" component={Learn} />
+              <Route exact={true} path="/programs" component={Programs} />
+              <Route exact={true} path="/companies" component={Companies} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </div> */}
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
