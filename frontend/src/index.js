@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
 import theme from "./theme";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -9,7 +10,10 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <Fragment>
+        <CssBaseline />
+        <App />
+      </Fragment>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

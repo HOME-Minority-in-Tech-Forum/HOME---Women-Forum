@@ -10,19 +10,20 @@ import {
   CardContent,
   CardMedia,
   Container,
-  CssBaseline,
   Grid,
   Typography,
 } from "@material-ui/core";
+import PageTitle from "../components/PageTitle";
 import HeroImage from "../assets/landing.png";
-// import Learn from "../assets/Icons/Learn.svg";
-// import Connect from "../assets/Icons/Connect.svg";
-// import Company from "../assets/Icons/Company.svg";
-// import Program from "../assets/Icons/Program.svg";
+import Learn from "../assets/Icons/Learn.svg";
+import Connect from "../assets/Icons/Connect.svg";
+import Company from "../assets/Icons/Company.svg";
+import Program from "../assets/Icons/Program.svg";
 
 const useStyles = makeStyles((theme) => ({
   flexBox: {
     display: "flex",
+    flexDirection: "row",
   },
   flexBoxCenter: {
     display: "flex",
@@ -73,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconImage: {
     height: "30px",
-    width: "50px",
+    width: "70px",
     objectFit: "cover",
     maxHeight: "50px",
     paddingTop: "25%",
@@ -90,21 +91,21 @@ const LandingPage = (props) => {
   const cards = [
     {
       title: "Learn",
-      icon: "../assets/Icons/Learn.svg",
+      icon: Learn,
       subtitle: "Videos on how to survive and thrive in Tech industry",
       link: "/learn",
       backgroundColor: "#FFEBFA",
     },
     {
       title: "Connect",
-      icon: "../assets/Icons/Connect.svg",
+      icon: Connect,
       subtitle: "Talk about what you love and enrich your social life",
       link: "/connect",
       backgroundColor: "#D8F6FE",
     },
     {
       title: "Programs",
-      icon: "../assets/Icons/Program.svg",
+      icon: Program,
       subtitle:
         "See supporting programs for minorities from different companies",
       link: "/programs",
@@ -112,7 +113,7 @@ const LandingPage = (props) => {
     },
     {
       title: "Companies",
-      icon: "../assets/Icons/Company.svg",
+      icon: Company,
       subtitle: "See how companies are supporting women and minorities",
       link: "/companies",
       backgroundColor: "#FFEBFA",
@@ -121,15 +122,10 @@ const LandingPage = (props) => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <main>
         {/* Title */}
         <Container maxWidth="lg">
-          <Box m={2} align="center">
-            <Typography gutterBottom variant="h2">
-              HOME
-            </Typography>
-          </Box>
+          <PageTitle pageTitle="HOME" />
           <Typography
             variant="subtitle1"
             paragraph
@@ -173,9 +169,6 @@ const LandingPage = (props) => {
 
                               <CardMedia
                                 className={classes.iconImage}
-                                // image={Learn}                // works
-                                // src={require(card.icon)}     // module not found
-                                // image={card.icon}            // nothing
                                 title="Image title"
                               />
                               <Typography align="left">
