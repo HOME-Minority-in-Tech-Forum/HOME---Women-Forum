@@ -4,7 +4,6 @@ const port = 3000;
 const app = express();
 const db = firebase.firestore();
 
-
 app.use(express.json());
 
 //Get Youtube Video JSON
@@ -22,7 +21,6 @@ app.get("/api/videos", (req, res) => {
             })
     })()
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
