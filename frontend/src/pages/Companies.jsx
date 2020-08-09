@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, Link as RouterLink } from "react-router-dom";
 import {
   makeStyles,
   Button,
@@ -86,12 +87,14 @@ const Companies = (props) => {
                           className={classes.leftButton}
                           fullWidth
                         >
-                          <Typography
-                            variant="button"
-                            fontWeight="fontWeightBold"
+                          <Link
+                            color="textPrimary"
+                            underline="none"
+                            component={RouterLink}
+                            to={"/companies/".concat(company.id)}
                           >
                             More Data
-                          </Typography>
+                          </Link>
                         </Button>
                       </Grid>
                       <Grid item xs={6}>
@@ -126,4 +129,4 @@ const Companies = (props) => {
   );
 };
 
-export default Companies;
+export default withRouter(Companies);

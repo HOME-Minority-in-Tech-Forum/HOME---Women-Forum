@@ -1,7 +1,14 @@
 [
   {
+    "id": "1",
     "companyName": "Intuit",
     "brandImage": "https://quickbooks.intuit.com/cas/dam/IMAGE/A81OBMP2T/icom-logo-ecosystem-lockup-4line-twitter.jpg",
+
+    "women": "37",
+    "asian": "30",
+    "african_american": "2",
+    "hispanic": "10",
+    "white": "4",
     "supportingPrograms": [
       {
         "programName": "Financial readiness",
@@ -34,18 +41,13 @@
         "description": "Apply your academic learnings to real world problems and work alongside professionals that will help take your career to the next level."
       }
     ],
-    "statsString": {
-      "year": "2019",
-      "women": "27 % - 47 % ",
-      "asian": "30 % ",
-      "african_american": "1 % - 3 %",
-      "hispanic": "8 - 12 % ",
-      "white": "33 - 58 % "
-    },
-    "statsImage": {},
+
+    "statsImageRace": "",
+    "statsImageSex": "",
     "website": "https: //www.intuit.com"
   },
   {
+    "id": "2",
     "companyName": "Google",
     "brandImage": "https://vcet.co/wp-content/uploads/2018/08/GOOGLE.jpg",
     "supportingPrograms": [
@@ -76,13 +78,13 @@
       }
     ],
     "statsString": {},
-    "statsImage": {
-      "imageRace": "https://datawrapper.dwcdn.net/AgtBC/2/",
-      "imageSex": "https://datawrapper.dwcdn.net/slo4y/1/"
-    },
+    "statsImageRace": "./assets/race.png",
+    "statsImageSex": "./assets/sex.png",
+
     "website": "https://careers.google.com/jobs/"
   },
   {
+    "id": "3",
     "companyName": "Ultimate Software",
     "brandImage": "https://upload.wikimedia.org/wikipedia/en/8/8b/Ultimate_Software_logo.jpg",
     "supportingPrograms": [
