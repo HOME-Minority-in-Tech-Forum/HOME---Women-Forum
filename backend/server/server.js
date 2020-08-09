@@ -31,12 +31,13 @@ app.get("/api/companies", (req, res) => {
             res.send(tempDoc);
             })
     })()
-})
+});
 
 
 //post a single document to collection info
-// app.post('/api/companies', (req, res) => {
-//     const data = req.body;
+app.post('/api/companies', (req, res) => {
+    const data = req.body;
+    res.send(data);
 //     db.collection("info").add(data)
 //   .then(function(docRef) {
 //       console.log("Document written with ID: ", docRef.id);
@@ -44,6 +45,6 @@ app.get("/api/companies", (req, res) => {
 //   .catch(function(error) {
 //       console.error("Error adding document: ", error);
 //   });
-// })
+});
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
