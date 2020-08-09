@@ -29,13 +29,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.navbar.default,
     color: theme.palette.text.primary,
   },
+  centerText: {
+    align: "center",
+  },
   toolbar: {
     display: "flex",
     flexWrap: "wrap",
   },
   toolbarMiddle: {
     display: "flex",
-    maxWidth: "65vw",
+    maxWidth: "69vw",
     marginLeft: "5rem",
     justifyContent: "space-even",
   },
@@ -89,8 +92,22 @@ const NavBar = (props) => {
                   to="/learn"
                   color="textPrimary"
                   underline="none"
+                  align="center"
+                  className={classes.centerText}
                 >
                   LEARN
+                </Link>
+              </ListItemText>
+              <ListItemText inset>
+                <Link
+                  variant="subtitle1"
+                  component={RouterLink}
+                  to="/connect"
+                  color="textPrimary"
+                  underline="none"
+                  className={classes.centerText}
+                >
+                  CONNECT
                 </Link>
               </ListItemText>
               <ListItemText inset>
@@ -100,6 +117,7 @@ const NavBar = (props) => {
                   to="/programs"
                   color="inherit"
                   underline="none"
+                  className={classes.centerText}
                 >
                   PROGRAMS
                 </Link>
@@ -111,6 +129,7 @@ const NavBar = (props) => {
                   to="/companies"
                   color="inherit"
                   underline="none"
+                  className={classes.centerText}
                 >
                   COMPANIES
                 </Link>
