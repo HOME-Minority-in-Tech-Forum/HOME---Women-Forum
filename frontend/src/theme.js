@@ -21,7 +21,9 @@ const theme = createMuiTheme({
   navbar: {
     default: "#fff",
   },
-
+  // pageTitle: {
+  //   margin: theme.spacing(5),
+  // },
   overrides: {
     MuiLink: {
       root: {

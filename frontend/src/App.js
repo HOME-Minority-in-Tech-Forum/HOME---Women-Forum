@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import Learn from "./pages/Learn";
 import Programs from "./pages/Programs";
 import Companies from "./pages/Companies";
+import Connect from "./pages/Connect";
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/NavBar";
 
@@ -15,15 +16,16 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar />
-          {/* <div>
+          <div>
             <Switch>
               <Route exact={true} path="/" component={LandingPage} />
               <Route exact={true} path="/learn" component={Learn} />
               <Route exact={true} path="/programs" component={Programs} />
               <Route exact={true} path="/companies" component={Companies} />
-              <Route component={NotFoundPage} />
+              <Route exact={true} path="/connect" component={Connect} />
+              <Route component={NotFoundPage} /> */}
             </Switch>
-          </div> */}
+          </div>
         </div>
       </Router>
     );
