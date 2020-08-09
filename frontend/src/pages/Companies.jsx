@@ -3,19 +3,18 @@ import {
   makeStyles,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Container,
-  CssBaseline,
   Grid,
+  Link,
   Typography,
 } from "@material-ui/core";
-
-const cards = [1, 2, 3, 4, 5, 6];
+import PageTitle from "../components/PageTitle";
+const mockData = require("../data.json");
 
 const useStyles = makeStyles((theme) => ({
-  /* 6 cards */
+  /* Cards */
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
@@ -25,12 +24,29 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
+    boxShadow: "10px 10px 5px #C3CFD5",
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
+    backgroundSize: "contain",
+    height: 0,
+    width: "100%",
   },
   cardContent: {
+    padding: theme.spacing(2, 3),
     flexGrow: 1,
+    background: "linear-gradient(45deg, #D8F6FE 30%, #FFEBFA 90%)",
+  },
+  buttons: {
+    marginTop: theme.spacing(4),
+  },
+  leftButton: {
+    backgroundColor: theme.purple.color,
+    color: theme.palette.text.primary,
+  },
+  rightButton: {
+    backgroundColor: theme.purple.color,
+    color: theme.palette.text.primary,
   },
   moreProjects: {
     justifyContent: "center",
@@ -43,44 +59,69 @@ const Companies = (props) => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <Grid container spacing={4}>
-        {cards.map((card) => (
-          <Grid item key={card} xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                image="https://source.unsplash.com/random"
-                title="Image title"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5">
-                  Title
-                </Typography>
-                <Typography align="left">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptate impedit magnam culpa
-                </Typography>
-              </CardContent>
-              <CardActions className={classes.flexBoxCenter}>
-                <Button
-                  size="medium"
-                  color="primary"
-                  className={classes.learnMoreButton}
-                  variant="contained"
-                >
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-      <Grid container className={classes.moreProjects}>
-        <Button size="large" color="secondary" variant="contained">
-          More Projects
-        </Button>
-      </Grid>
+      <Container maxWidth="lg">
+        <PageTitle pageTitle="COMPANIES" />
+        <Grid container spacing={4}>
+          {mockData.map((company) => (
+            <Grid item key={company.companyName} xs={12} sm={6} md={4}>
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={company.brandImage}
+                  title="Image title"
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterBottom variant="h5" align="center">
+                    {company.companyName}
+                  </Typography>
+                  <Typography align="center">
+                    Program Count: {company.supportingPrograms.length}
+                  </Typography>
+                  <div className={classes.buttons}>
+                    <Grid container spacing={7}>
+                      <Grid item xs={6}>
+                        <Button
+                          size="large"
+                          variant="contained"
+                          className={classes.leftButton}
+                          fullWidth
+                        >
+                          <Typography
+                            variant="button"
+                            fontWeight="fontWeightBold"
+                          >
+                            More Data
+                          </Typography>
+                        </Button>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Button
+                          variant="contained"
+                          className={classes.rightButton}
+                          fullWidth
+                        >
+                          <Link
+                            color="textPrimary"
+                            underline="none"
+                            href={company.website}
+                          >
+                            Visit
+                          </Link>
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+        <Grid container className={classes.moreProjects}>
+          <Button size="large" color="secondary" variant="contained">
+            More Company
+          </Button>
+        </Grid>
+      </Container>
     </React.Fragment>
   );
 };

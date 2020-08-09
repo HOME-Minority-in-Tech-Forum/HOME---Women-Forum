@@ -1,7 +1,7 @@
 [
   {
     "companyName": "Intuit",
-    "brandImage": "https: //quickbooks.intuit.com/cas/dam/IMAGE/A81OBMP2T/icom-logo-ecosystem-lockup-4line-twitter.jpg",
+    "brandImage": "https://quickbooks.intuit.com/cas/dam/IMAGE/A81OBMP2T/icom-logo-ecosystem-lockup-4line-twitter.jpg",
     "supportingPrograms": [
       {
         "programName": "Financial readiness",
@@ -47,7 +47,7 @@
   },
   {
     "companyName": "Google",
-    "brandImage": "https: //vcet.co/wp-content/uploads/2018/08/GOOGLE.jpg",
+    "brandImage": "https://vcet.co/wp-content/uploads/2018/08/GOOGLE.jpg",
     "supportingPrograms": [
       {
         "programName": "Free breakfast, lunch, and even dinner if they stay late",
@@ -65,7 +65,7 @@
       {
         "programName": "Google for Startups Accelerator for Women Founders",
         "location": "online",
-        "programLink": "https: //developers.google.com/community/accelerators/women-founders",
+        "programLink": "https://developers.google.com/community/accelerators/women-founders",
         "description": "three - month digital accelerator program for high potential Seed to Series A tech startups based in the U.S.and Canada"
       },
       {
@@ -77,14 +77,14 @@
     ],
     "statsString": {},
     "statsImage": {
-      "imageRace": "https: //datawrapper.dwcdn.net/AgtBC/2/",
-      "imageSex": "https: //datawrapper.dwcdn.net/slo4y/1/"
+      "imageRace": "https://datawrapper.dwcdn.net/AgtBC/2/",
+      "imageSex": "https://datawrapper.dwcdn.net/slo4y/1/"
     },
-    "website": "https: //careers.google.com/jobs/"
+    "website": "https://careers.google.com/jobs/"
   },
   {
     "companyName": "Ultimate Software",
-    "brandImage": "https: //upload.wikimedia.org/wikipedia/en/8/8b/Ultimate_Software_logo.jpg",
+    "brandImage": "https://upload.wikimedia.org/wikipedia/en/8/8b/Ultimate_Software_logo.jpg",
     "supportingPrograms": [
       {
         "programName": "10 weeks of paid maternity and adoption leave",
@@ -117,6 +117,6 @@
     ],
     "statsString": {},
     "statsImage": {},
-    "website": "https: //www.ultimatesoftware.com/careers/"
+    "website": "https://www.ultimatesoftware.com/careers/"
   }
 ]
