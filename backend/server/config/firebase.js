@@ -1,7 +1,11 @@
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
 require('dotenv').config()
 
 // Your web app's Firebase configuration
-    var firebaseConfig = {
+const firebaseConfig = {
     apiKey: process.env.APIKEY,
     authDomain: process.env.AUTHDOMAIN,
     databaseURL: process.env.DATABASEURL,
@@ -15,3 +19,4 @@ require('dotenv').config()
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
+module.exports = firebase;
