@@ -1,12 +1,12 @@
 const express = require('express');
 var bodyParser = require('body-parser')
 const {first, second} = require('./config/config.js');
-// const christy = require('./config/christyConfig.js');
 require('dotenv').config();
 
 const app = express();
 const db = first.firestore();
 const database = second.firestore();
+// const storage = second.storage();
 //port
 const PORT = process.env.PORT || 3000;
 
@@ -42,14 +42,14 @@ app.get("/api/companies", (req, res) => {
 //post a single document to collection info
 app.post('/api/companies', (req, res) => {
     const data = req.body;
-    res.send(data);
-//     db.collection("info").add(data)
-//   .then(function(docRef) {
-//       console.log("Document written with ID: ", docRef.id);
-//   })
-//   .catch(function(error) {
-//       console.error("Error adding document: ", error);
-//   });
+    // res.send(data);
+    db.collection("info").add(data)
+  .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+      console.error("Error adding document: ", error);
+  });
 });
 
 
@@ -70,4 +70,48 @@ app.get("/api/videos", (req, res) => {
     })()
 })
 
+//Get all video requests and likes
+app.get("/api/videosreq", (req, res) => {
+    (async function getMarkers() {
+        const events = database.collection('VideoReq');
+        events
+            .get()
+            .then((querySnapshot) => {
+                const tempDoc = []
+                querySnapshot.forEach((doc) => {
+                    tempDoc.push({ id: doc.id, ...doc.data() })
+                })
+                res.send(tempDoc);
+            })
+    })()
+})
+
+//Get Video from firebase storage 
+//TODO: Not working yet
+// app.get("/api/videos", (req, res) => {
+//     (async function getMarkers() {
+//         let listRef = storage.ref("Videos")
+//         let i = 1
+//         listRef.listAll().then(function(result) {
+//             let tempDoc = []
+//             let length = result.items.length
+//             result.items.forEach(function(itemRef) {
+//                 itemRef.getDownloadURL()
+//                     .then(function(url){
+//                         tempDoc.push(url);
+//                         console.log(tempDoc);
+//                         if(i === length){
+//                              res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
+//                         }
+//                         else{
+//                             i = i+1;
+//                         }
+//                     });
+//             });
+
+//         }).catch(function(error) {
+//             console.log("error encountered");
+//         });
+//     })()
+// })
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
