@@ -1,13 +1,18 @@
 const express = require('express');
-const firebase = require('./config/config.js');
+var bodyParser = require('body-parser')
+const {first, second} = require('./config/config.js');
+// const christy = require('./config/christyConfig.js');
 require('dotenv').config();
 
 const app = express();
-const db = firebase.firestore();
+const db = first.firestore();
+const database = second.firestore();
 //port
 const PORT = process.env.PORT || 3000;
+
 //middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //routes
 
@@ -46,5 +51,23 @@ app.post('/api/companies', (req, res) => {
 //       console.error("Error adding document: ", error);
 //   });
 });
+
+
+//Get all Youtube Video JSON
+app.get("/api/videos", (req, res) => {
+    // res.send("hello");
+    (async function getMarkers() {
+        const events = database.collection('YoutubeVid');
+        events
+            .get()
+            .then((querySnapshot) => {
+                const tempDoc = []
+                querySnapshot.forEach((doc) => {
+                    tempDoc.push({ id: doc.id, ...doc.data() })
+                })
+                res.send(tempDoc);
+            })
+    })()
+})
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

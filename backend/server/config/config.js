@@ -16,7 +16,18 @@ require('dotenv').config();
     messagingSenderId: process.env.MESSAGING_SENDER_ID,
     appId: process.env.APP_ID
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
-  module.exports = firebase;
+  const christyConfig = {
+    apiKey: process.env.APIKEY,
+    authDomain: process.env.AUTHDOMAIN,
+    databaseURL: process.env.DATABASEURL,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID
+  };
+  // Initialize Firebase
+  var first = firebase.initializeApp(firebaseConfig, 'first_instance');
+  var second = firebase.initializeApp(christyConfig, 'second_instance')
+
+  module.exports = {first, second};
