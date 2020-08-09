@@ -170,6 +170,7 @@ const LandingPage = (props) => {
                               <CardMedia
                                 className={classes.iconImage}
                                 title="Image title"
+                                image={card.icon}
                               />
                               <Typography align="left">
                                 {card.subtitle}
