@@ -25,7 +25,6 @@ app.post('/signin', JSONParser, (req, res) => {
             });
         });
 });
-
 // To test this route on POSTMAN, Choose Body -> raw + JSON
 // Example: localhost:5000/api/auth/signup
 // If sign up successfully, response sends back status 200
@@ -33,7 +32,6 @@ app.post('/signin', JSONParser, (req, res) => {
 //    response sends back status 200, code and message.
 app.post('/signup', JSONParser, (req, res) => {
     const { email, username, password } = req.body;
-
     firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
