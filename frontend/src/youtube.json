@@ -1,0 +1,84 @@
+{
+  "YoutubeVid": [
+    {
+      "id": "6d1HBpgQ5Ck",
+      "description": "Pay Discrimination in Tech",
+      "VideoTitle": "Women in Technology: Time to close the gender gap",
+      "Company": "Computer History Museum",
+      "url": "https://www.youtube.com/watch?v=6d1HBpgQ5Ck",
+      "thumbnail": "http://i3.ytimg.com/vi/6d1HBpgQ5Ck/maxresdefault.jpg"
+    },
+    {
+      "id": "fOJ-KKtzDXI",
+      "description": "Advice for Women in Tech",
+      "VideoTitle": "Women in Tech: Insider advice from female software engineers",
+      "Company": "Le Wagon",
+      "url": "https://www.youtube.com/watch?v=fOJ-KKtzDXI",
+      "thumbnail": "http://i3.ytimg.com/vi/fOJ-KKtzDXI/maxresdefault.jpg"
+    },
+    {
+      "id": "WRjVyw3Q6x4",
+      "description": "How Can Women Negotiate in the Workplace",
+      "VideoTitle": "Negotiation Tips for Women in Technology",
+      "Company": "Coding Blonde",
+      "url": "https://www.youtube.com/watch?v=WRjVyw3Q6x4",
+      "thumbnail": "http://i3.ytimg.com/vi/WRjVyw3Q6x4/maxresdefault.jpg"
+    },
+    {
+      "id": "noam3iripJ0",
+      "description": "Inclusivity in the Workplace",
+      "VideoTitle": "Creating an Inclusive Environment for Women in Tech",
+      "Company": "Melinda Gates",
+      "url": "https://www.youtube.com/watch?v=noam3iripJ0",
+      "thumbnail": "http://i3.ytimg.com/vi/noam3iripJ0/maxresdefault.jpg"
+    },
+    {
+      "id": "-SVaCCeHZjg",
+      "description": "Work/Life Balance For Women In Tech",
+      "VideoTitle": "Achieving Work/Life Balance as a Woman in Tech",
+      "Company": "Bank of America",
+      "url": "https://www.youtube.com/watch?v=-SVaCCeHZjg",
+      "thumbnail": "http://i3.ytimg.com/vi/-SVaCCeHZjg/maxresdefault.jpg"
+    },
+    {
+      "id": " ",
+      "description": "Increasing Conversations about Diversity",
+      "VideoTitle": "Why Do We Dance Around Diversity in Tech",
+      "Company": "TEDx Talks",
+      "url": "https://www.youtube.com/embed/b5n7my8KJ0o",
+      "thumbnail": "http://i3.ytimg.com/vi/b5n7my8KJ0o/maxresdefault.jpg"
+    },
+    {
+      "id": " ",
+      "description": "Unconscious bias",
+      "VideoTitle": "Unconscious bias: Stereotypical hiring practices",
+      "Company": "TEDx Talks",
+      "url": "https://www.youtube.com/embed/QCFb4BiDDcE",
+      "thumbnail": "http://i3.ytimg.com/vi/QCFb4BiDDcE/maxresdefault.jpg"
+    },
+    {
+      "id": " ",
+      "description": "Inspiring the next generation",
+      "VideoTitle": "Inspiring the next generation of female engineers",
+      "Company": "TEDx Talks",
+      "url": "https://www.youtube.com/embed/FEeTLopLkEo",
+      "thumbnail": "https://img.youtube.com/vi/FEeTLopLkEo/maxresdefault.jpg"
+    },
+    {
+      "id": " ",
+      "description": "How To Fix The Industry's Gender Problem",
+      "VideoTitle": "Women In Tech Tell Us How To Fix The Industry's Gender Problem",
+      "Company": "Vice News",
+      "url": "https://www.youtube.com/embed/gCgXa2VKGA8",
+      "thumbnail": "https://img.youtube.com/vi/gCgXa2VKGA8/maxresdefault.jpg"
+    },
+    {
+      "id": " ",
+      "description": "Tech Statistics",
+      "VideoTitle": "Women in tech statistics: Hard truths of an uphill battle",
+      "Company": "IDG TECHtalk",
+      "url": "https://www.youtube.com/embed/QGo9v4TE8eo",
+      "thumbnail": "https://img.youtube.com/vi/QGo9v4TE8eo/maxresdefault.jpg"
+    }
+  ]
+}

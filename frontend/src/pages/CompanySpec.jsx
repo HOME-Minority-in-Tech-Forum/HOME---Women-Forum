@@ -69,9 +69,9 @@ const CompanySpec = (props) => {
       mockData[mockData.findIndex((data) => data.id === props.match.params.id)]
     );
   }, []);
-  console.log(`Company NAME: ${profile.companyName}`);
-  console.log(profile);
-  console.log(profile.women);
+  // console.log(`Company NAME: ${profile.companyName}`);
+  // console.log(profile);
+  // console.log(profile.women);
   return (
     <React.Fragment>
       <Container maxWidth="lg">

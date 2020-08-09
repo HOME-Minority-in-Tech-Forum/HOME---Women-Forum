@@ -98,18 +98,7 @@ const NavBar = (props) => {
                   LEARN
                 </Link>
               </ListItemText>
-              <ListItemText inset>
-                <Link
-                  variant="subtitle1"
-                  component={RouterLink}
-                  to="/connect"
-                  color="textPrimary"
-                  underline="none"
-                  className={classes.centerText}
-                >
-                  CONNECT
-                </Link>
-              </ListItemText>
+
               <ListItemText inset>
                 <Link
                   variant="subtitle1"
@@ -132,6 +121,18 @@ const NavBar = (props) => {
                   className={classes.centerText}
                 >
                   COMPANIES
+                </Link>
+              </ListItemText>
+              <ListItemText inset>
+                <Link
+                  variant="subtitle1"
+                  component={RouterLink}
+                  to="/connect"
+                  color="textPrimary"
+                  underline="none"
+                  className={classes.centerText}
+                >
+                  CONNECT
                 </Link>
               </ListItemText>
             </ListItem>
