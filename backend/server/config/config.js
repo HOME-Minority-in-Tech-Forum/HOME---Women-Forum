@@ -1,10 +1,13 @@
 const firebase = require("firebase");
-require('dotenv').config();
+
 // Required for side-effects
 require("firebase/firestore");
 
+
+require('dotenv').config();
+
   // Your web app's Firebase configuration
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: process.env.API_KEY,
     authDomain: process.env.AUTH_DOMAIN,
     databaseURL: process.env.DATABASE_URL,

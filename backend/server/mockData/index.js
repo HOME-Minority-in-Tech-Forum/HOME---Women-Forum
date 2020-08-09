@@ -9,7 +9,7 @@ firebase.initializeApp({
     projectId: process.env.PROJECT_ID,
   });
 
-  var db = firebase.firestore();
+const  db = firebase.firestore();
 // console.log(data);
 data.forEach(doc => {
   db.collection("info").add(doc)

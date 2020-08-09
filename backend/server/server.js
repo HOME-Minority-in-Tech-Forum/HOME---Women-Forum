@@ -1,6 +1,6 @@
 const express = require('express');
-require('dotenv').config();
 const firebase = require('./config/config.js');
+require('dotenv').config();
 
 const app = express();
 const db = firebase.firestore();
@@ -35,15 +35,15 @@ app.get("/api/companies", (req, res) => {
 
 
 //post a single document to collection info
-app.post('/api/companies', (req, res) => {
-    const data = req.body;
-    db.collection("info").add(data)
-  .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
-  });
-})
+// app.post('/api/companies', (req, res) => {
+//     const data = req.body;
+//     db.collection("info").add(data)
+//   .then(function(docRef) {
+//       console.log("Document written with ID: ", docRef.id);
+//   })
+//   .catch(function(error) {
+//       console.error("Error adding document: ", error);
+//   });
+// })
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
