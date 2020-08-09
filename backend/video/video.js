@@ -1,3 +1,9 @@
+const express = require('express');
+const router = express.Router();
+
+const server = require('../server');
+
+
 var files = [];
 
 //To DO: Make a files button in HTML
@@ -20,6 +26,7 @@ document.getElementById("send").addEventListener("click", function() {
 
       //upload file
       var upload = storage.put(files[i]);
+
 
       //update progress bar
       upload.on(
@@ -44,6 +51,7 @@ document.getElementById("send").addEventListener("click", function() {
   }
 });
 
+
 //Gets reference to the one video. specify filename
 function getFileUrl(filename) {
 //.mp4 is the only movie format that it works for.
@@ -61,3 +69,5 @@ function getFileUrl(filename) {
     });
 
 }
+
+getFileUrl("");
