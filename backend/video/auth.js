@@ -6,13 +6,13 @@ const bodyParser = require('body-parser');
 const JSONParser = bodyParser.json();
 
 // To test this route on POSTMAN, Choose Body -> raw + JSON
-// Example: localhost:5000/api/auth/signin
+// Example: localhost:3000/signin
 // If sign in successfully, response sends back status 200
 // If sign in fail, response sends back status 200, errorCode and errorMessage
 app.post('/signin', JSONParser, (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
-    console.log(req.body);
+    //console.log(req.body);
 
     firebase
         .auth()
@@ -26,7 +26,7 @@ app.post('/signin', JSONParser, (req, res) => {
         });
 });
 // To test this route on POSTMAN, Choose Body -> raw + JSON
-// Example: localhost:5000/api/auth/signup
+// Example: localhost:3000/signup
 // If sign up successfully, response sends back status 200
 // If sign up fail due to incorrect username or password but request has been processed by firebase,
 //    response sends back status 200, code and message.
