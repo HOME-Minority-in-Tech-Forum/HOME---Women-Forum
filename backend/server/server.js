@@ -1,12 +1,11 @@
 const express = require('express');
-var bodyParser = require('body-parser')
-const {first, second} = require('./config/config.js');
+const firebase = require('./config/config.js');
 require('dotenv').config();
 
+
 const app = express();
-const db = first.firestore();
-const database = second.firestore();
-// const storage = second.storage();
+const db = firebase.firestore();
+const storage = firebase.storage();//<--need to fix
 //port
 const PORT = process.env.PORT || 3000;
 
@@ -57,7 +56,7 @@ app.post('/api/companies', (req, res) => {
 app.get("/api/videos", (req, res) => {
     // res.send("hello");
     (async function getMarkers() {
-        const events = database.collection('YoutubeVid');
+        const events = db.collection('YoutubeVid');
         events
             .get()
             .then((querySnapshot) => {
@@ -73,7 +72,7 @@ app.get("/api/videos", (req, res) => {
 //Get all video requests and likes
 app.get("/api/videosreq", (req, res) => {
     (async function getMarkers() {
-        const events = database.collection('VideoReq');
+        const events = db.collection('VideoReq');
         events
             .get()
             .then((querySnapshot) => {
@@ -88,30 +87,30 @@ app.get("/api/videosreq", (req, res) => {
 
 //Get Video from firebase storage 
 //TODO: Not working yet
-// app.get("/api/videos", (req, res) => {
-//     (async function getMarkers() {
-//         let listRef = storage.ref("Videos")
-//         let i = 1
-//         listRef.listAll().then(function(result) {
-//             let tempDoc = []
-//             let length = result.items.length
-//             result.items.forEach(function(itemRef) {
-//                 itemRef.getDownloadURL()
-//                     .then(function(url){
-//                         tempDoc.push(url);
-//                         console.log(tempDoc);
-//                         if(i === length){
-//                              res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
-//                         }
-//                         else{
-//                             i = i+1;
-//                         }
-//                     });
-//             });
+app.get("/api/storage/videos", (req, res) => {
+    (async function getMarkers() {
+        let listRef = storage.ref("Videos")
+        let i = 1
+        listRef.listAll().then(function(result) {
+            let tempDoc = []
+            let length = result.items.length
+            result.items.forEach(function(itemRef) {
+                itemRef.getDownloadURL()
+                    .then(function(url){
+                        tempDoc.push(url);
+                        // console.log(tempDoc);
+                        if(i === length){
+                             res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
+                        }
+                        else{
+                            i = i+1;
+                        }
+                    });
+            });
 
-//         }).catch(function(error) {
-//             console.log("error encountered");
-//         });
-//     })()
-// })
+        }).catch(function(error) {
+            console.log("error encountered");
+        });
+    })()
+})
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

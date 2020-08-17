@@ -2,7 +2,8 @@ const firebase = require("firebase");
 
 // Required for side-effects
 require("firebase/firestore");
-
+require("firebase/storage");
+global.XMLHttpRequest = require("xhr2");
 
 require('dotenv').config();
 
@@ -17,17 +18,8 @@ require('dotenv').config();
     appId: process.env.APP_ID
   };
 
-  const christyConfig = {
-    apiKey: process.env.APIKEY,
-    authDomain: process.env.AUTHDOMAIN,
-    databaseURL: process.env.DATABASEURL,
-    projectId: process.env.PROJECTID,
-    storageBucket: process.env.STORAGEBUCKET,
-    messagingSenderId: process.env.MESSAGINGSENDERID,
-    appId: process.env.APPID
-  };
-  // Initialize Firebase
-  var first = firebase.initializeApp(firebaseConfig, 'first_instance');
-  var second = firebase.initializeApp(christyConfig, 'second_instance')
 
-  module.exports = {first, second};
+  // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+  module.exports = firebase;
