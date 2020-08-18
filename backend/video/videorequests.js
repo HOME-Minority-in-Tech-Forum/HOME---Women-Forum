@@ -1,9 +1,8 @@
 const express = require('express')
-const firebase = require('../server/config/firebase.js');
+const firebase = require('/Users/czheng/HOME---Women-Forum/backend/server/config/config.js');
+const db = firebase.firestore();
 const port = 3000;
 const app = express();
-const db = firebase.firestore();
-
 
 app.use(express.json());
 
@@ -24,17 +23,16 @@ app.get("/api/videosreq", (req, res) => {
 })
 
 //Make a Video Request
-var count = 1;
+//var count = 1;
 app.post("/api/videosreq", (req, res) => {
     let message = req.body;
-     db.collection('RequestVideos')
-        .doc(count+"")
+    db.collection('VideoReq')
+        .doc()
         .set(message)
         .then(() => {
             res.send(message);
         })
-    count = count+1;
-
+    //count = count+1;
 })
 
 

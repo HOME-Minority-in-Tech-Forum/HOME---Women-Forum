@@ -1,14 +1,14 @@
 const express = require('express');
-var bodyParser = require('body-parser')
-const {first, second} = require('./config/config.js');
+const bodyParser = require('body-parser')
+const JSONParser = bodyParser.json();
 require('dotenv').config();
-
+const firebase = require('../server/config/config.js');
+const db = firebase.firestore();
 const app = express();
-const db = first.firestore();
-const database = second.firestore();
-// const storage = second.storage();
+
 //port
 const PORT = process.env.PORT || 3000;
+console.log(process.env.PORT);
 
 //middleware
 app.use(express.json());
@@ -19,6 +19,50 @@ app.use(express.urlencoded({ extended: true }));
 //landing page
 app.get("/", (req, res) => {
     res.send("Welcome");
+});
+
+//sign in
+app.post('/signin', JSONParser, (req, res) => {
+    let email = req.body.email;
+    let password = req.body.password;
+    console.log(req.body);
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(({ user }) => res.json({ uid: user.uid }))
+        .catch((error) => {
+            res.json({
+                code: error.code,
+                message: error.message,
+            });
+        });
+
+});
+
+//sign up
+app.post('/signup', JSONParser, (req, res) => {
+    const { email, username, password } = req.body;
+    firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(function (userRecord) {
+            const { uid } = userRecord.user;
+            firebase
+                .database()
+                .ref('users/' + uid)
+                .set({
+                    id: uid,
+                    email,
+                    username
+                });
+            res.status(200).sendStatus(200);
+        })
+        .catch((error) => {
+            res.json({
+                code: error.code,
+                message: error.message,
+            });
+        });
 });
 
 //get all info from all companies
@@ -54,10 +98,10 @@ app.post('/api/companies', (req, res) => {
 
 
 //Get all Youtube Video JSON
-app.get("/api/videos", (req, res) => {
+app.get("/api/youtubevideos", (req, res) => {
     // res.send("hello");
     (async function getMarkers() {
-        const events = database.collection('YoutubeVid');
+        const events = db.collection('YoutubeVid');
         events
             .get()
             .then((querySnapshot) => {
@@ -73,7 +117,7 @@ app.get("/api/videos", (req, res) => {
 //Get all video requests and likes
 app.get("/api/videosreq", (req, res) => {
     (async function getMarkers() {
-        const events = database.collection('VideoReq');
+        const events = db.collection('VideoReq');
         events
             .get()
             .then((querySnapshot) => {
@@ -86,7 +130,48 @@ app.get("/api/videosreq", (req, res) => {
     })()
 })
 
-//Get Video from firebase storage 
+//Add a video request
+app.post("/api/videosreq", (req, res) => {
+    let message = req.body;
+    db.collection('VideoReq')
+        .doc()
+        .set(message)
+        .then(() => {
+            res.send(message);
+        })
+})
+
+app.get("/api/storagevideos", (req, res) => {
+    (async function getMarkers() {
+        let listRef = db.ref("Videos")
+        let i = 1
+        listRef.listAll().then(function(result) {
+            let tempDoc = []
+            let length = result.items.length
+            result.items.forEach(function(itemRef) {
+                itemRef.getDownloadURL()
+                    .then(function(url){
+                        tempDoc.push(url);
+                        console.log(tempDoc);
+                        if(i === length){
+                            res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
+                        }
+                        else{
+                            i = i+1;
+                        }
+                    });
+            });
+
+        }).catch(function(error) {
+            console.log(error);
+        });
+    })()
+
+})
+
+
+
+//Get Video from firebase storage
 //TODO: Not working yet
 // app.get("/api/videos", (req, res) => {
 //     (async function getMarkers() {

@@ -1,13 +1,16 @@
 const express = require('express')
-const firebase = require('../server/config/firebase.js');
+const firebase = require('/Users/czheng/HOME---Women-Forum/backend/server/config/config.js');
+const db = firebase.firestore();
 const port = 3000;
 const app = express();
-const db = firebase.firestore();
+//const {first, second} = require('/Users/czheng/HOME---Women-Forum/backend/video/youtubevideos.js');
+//const database = second.firestore();
+//const db = firebase.firestore();
 
 app.use(express.json());
 
 //Get Youtube Video JSON
-app.get("/api/videos", (req, res) => {
+app.get("/api/youtubevideos", (req, res) => {
     (async function getMarkers() {
         const events = db.collection('YoutubeVid');
         events

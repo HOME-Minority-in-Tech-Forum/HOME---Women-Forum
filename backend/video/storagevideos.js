@@ -1,5 +1,5 @@
 const express = require('express')
-const firebase = require('../server/config/firebase.js');
+const firebase = require('/Users/czheng/HOME---Women-Forum/backend/server/config/config.js');
 const port = 3000;
 const app = express();
 const db = firebase.storage();
@@ -8,7 +8,7 @@ global.XMLHttpRequest = require("xhr2");
 app.use(express.json());
 
 //Get Video JSON
-app.get("/api/videos", (req, res) => {
+app.get("/api/storagevideos", (req, res) => {
     (async function getMarkers() {
         let listRef = db.ref("Videos")
         let i = 1
@@ -21,7 +21,7 @@ app.get("/api/videos", (req, res) => {
                         tempDoc.push(url);
                         console.log(tempDoc);
                         if(i === length){
-                             res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
+                            res.send(tempDoc);   //only gets 1 video url which is why I add to tempDoc
                         }
                         else{
                             i = i+1;
@@ -30,20 +30,21 @@ app.get("/api/videos", (req, res) => {
             });
 
         }).catch(function(error) {
-            console.log("error encountered");
+            console.log(error);
         });
     })()
 
 })
 
-// //Post a Video
-// let file = './backend/video/bread.mp4';
-//
-// app.post("/api/videos", (req, res) => {
-//     let file = req;  //file is of type object, req = 'bread.mp4' binary by POSTMAN
+
+// // //Post a Video
+// let file = '/Users/czheng/HOME---Women-Forum/backend/video/gallery.jpg';
+// app.post("/api/storagevideos", (req, res) => {
+//     //let file = req;  //file is of type object, req = 'bread.mp4' binary by POSTMAN
 //     console.log(file.name)
 //     let storage = db.ref("Videos").child(file.name);
-//     storage.put(file)
+//     storage
+//         .put(file)
 //         .then(function(snapshot) {
 //             res.send('Uploaded video!') //this res.send does not go through
 //     }).catch(function(error) {
