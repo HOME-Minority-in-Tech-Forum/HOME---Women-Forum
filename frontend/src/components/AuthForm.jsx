@@ -138,9 +138,35 @@ export default function AuthForm(props) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          {heading}
-        </Typography>
+        <Typography variant="h4">{heading}</Typography>
+        {signUp && (
+          <Fragment>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="secondary"
+              className={classes.submit}
+            >
+              Sign Up with Google
+            </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="secondary"
+              className={classes.submit}
+            >
+              Sign Up with Facebook
+            </Button>
+          </Fragment>
+        )}
+
+        {signUp && (
+          <Box mt={3}>
+            <Typography variant="h6">OR</Typography>
+          </Box>
+        )}
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             {signUp && (
