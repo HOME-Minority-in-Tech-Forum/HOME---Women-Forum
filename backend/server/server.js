@@ -1,13 +1,13 @@
 const express = require('express');
 // const firebase = require('./config/config.js');
-require('dotenv').config();
+require('dotenv').config({path: "../.env"});
 
 
 const app = express();
 
 
 //port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(express.json());
@@ -18,6 +18,7 @@ const storageVideos = require('./routes/storageVideos');
 const videoRequests = require('./routes/videoReqs');
 const videos = require('./routes/videos');
 const companiesInfo = require('./routes/company');
+const auth = require('./routes/auth');
 
 //landing page
 app.get("/", (req, res) => {
@@ -38,5 +39,7 @@ app.use("/api/videosreq", videoRequests);
 //Get Video from firebase storage 
 app.use("/api/storage/videos", storageVideos);
 
+//Sign in and Sign out
+app.use("/api/auth", auth);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
