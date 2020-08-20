@@ -92,7 +92,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <CssBaseline />
       <AppBar
         position="static"
@@ -213,7 +213,7 @@ const NavBar = (props) => {
                   color="inherit"
                   underline="none"
                   component={RouterLink}
-                  //   to="/login"
+                  to="/login"
                   className={classes.rightButton}
                 >
                   LOGIN
@@ -224,7 +224,7 @@ const NavBar = (props) => {
                   variant="contained"
                   className={`${classes.rightButton} ${classes.signUpButton}`}
                   component={RouterLink}
-                  //   to="/signup"
+                  to="/signup"
                 >
                   SIGN UP
                 </Button>
@@ -233,7 +233,7 @@ const NavBar = (props) => {
           )}
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </Fragment>
   );
 };
 
@@ -265,6 +265,14 @@ const menuItems = [
   {
     menuTitle: "Contact",
     pageURL: "/contact",
+  },
+  {
+    menuTitle: "Login",
+    pageURL: "/login",
+  },
+  {
+    menuTitle: "Signup",
+    pageURL: "/signup",
   },
 ];
 

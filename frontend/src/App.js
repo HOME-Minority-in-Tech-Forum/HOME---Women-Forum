@@ -8,6 +8,8 @@ import Programs from "./pages/Programs";
 import Companies from "./pages/Companies";
 import CompanySpec from "./pages/CompanySpec";
 import Connect from "./pages/Connect";
+import AuthForm from "./components/AuthForm";
+// import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import NavBar from "./components/NavBar";
 
@@ -19,18 +21,38 @@ class App extends React.Component {
           <NavBar />
           <div>
             <Switch>
-              <Route exact={true} path="/" component={LandingPage} />
-              <Route exact={true} path="/learn" component={Learn} />
-              <Route exact={true} path="/programs" component={Programs} />
-              <Route exact={true} path="/companies" component={Companies} />
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/learn" component={Learn} />
+              <Route exact path="/programs" component={Programs} />
+              <Route exact path="/companies" component={Companies} />
               <Route
                 exact={true}
                 path="/companies/:id"
                 component={() => <CompanySpec />}
               />
-              <Route exact={true} path="/connect" component={Connect} />
+              <Route exact path="/connect" component={Connect} />
+              <Route
+                exact
+                path="/signup"
+                render={(props) => (
+                  <AuthForm
+                    signUp
+                    buttonText="Sign Up"
+                    heading="Sign Up"
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/login"
+                render={(props) => (
+                  <AuthForm buttonText="Login" heading="Login" {...props} />
+                )}
+              />
               <Route component={NotFoundPage} /> */}
             </Switch>
+            g
           </div>
         </div>
       </Router>
