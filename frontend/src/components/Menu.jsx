@@ -106,7 +106,7 @@ export const desktopMenu = (
       style={{
         backgroundColor: "rgb(255, 64, 129, 0.7)",
         fontFamily: "Lato, Iter, sans-serif, serif",
-        color: "#454550",
+        color: "#FFF",
         fontSize: "1rem",
         fontWeight: 700,
         textTransform: "none",
