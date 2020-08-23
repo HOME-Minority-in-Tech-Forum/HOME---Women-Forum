@@ -103,13 +103,13 @@ const Companies = (props) => {
                           className={classes.rightButton}
                           fullWidth
                         >
-                          <Link
+                          {/* <Link
                             color="textPrimary"
                             underline="none"
                             href={company.website}
                           >
                             Visit
-                          </Link>
+                          </Link> */}
                         </Button>
                       </Grid>
                     </Grid>

@@ -15,9 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
           <NavBar />
-          <div>
             <Switch>
               <Route exact={true} path="/" component={LandingPage} />
               <Route exact={true} path="/learn" component={Learn} />
@@ -29,10 +27,8 @@ class App extends React.Component {
                 component={() => <CompanySpec />}
               />
               <Route exact={true} path="/connect" component={Connect} />
-              <Route component={NotFoundPage} /> */}
+              <Route component={NotFoundPage} />
             </Switch>
-          </div>
-        </div>
       </Router>
     );
   }

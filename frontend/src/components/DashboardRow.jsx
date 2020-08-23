@@ -10,7 +10,7 @@ const mockData = require("../data.json");
 
 const DashboardRow = (props) => {
   return props.supportingPrograms.map((program) => (
-    <TableRow key={props.name}>
+    <TableRow key={props.name + Math.random()}>
       <TableCell>{props.name}</TableCell>
       <TableCell>{program.programName}</TableCell>
       <TableCell>{program.location}</TableCell>
