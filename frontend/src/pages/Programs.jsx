@@ -110,8 +110,15 @@ const Programs = (props) => {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  let rows = 0;
-  // const emptyRows = rowsPerPage - Math.min(rowsPerPage, mockData.length - page * rowsPerPage);
+
+  //Convert data to a format for pagination
+  let companyRows = [];
+  mockData.map((company) => {
+    company.supportingPrograms.forEach((program) => (
+      companyRows.push({companyName: company.companyName, supportingPrograms: program})
+    ));
+  });
+  let rows = companyRows.length;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -196,20 +203,23 @@ const Programs = (props) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                {mockData.map((company) => {
-                    rows = rows + (company.supportingPrograms).length;
+                  {(rowsPerPage > 0
+                    ? companyRows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    : rows
+                  )
+                  .map((company) => {
                     return (
-                    <DashboardRow
-                      name={company.companyName}
-                      supportingPrograms={company.supportingPrograms}
-                      key={company.companyName + Math.random()}
-                    />
-                  )})}
+                      <DashboardRow
+                        name={company.companyName}
+                        program={company.supportingPrograms}
+                        key={company.companyName + Math.random()}
+                      />
+                    )})}
                 </TableBody>
                 <TableFooter>
                   <TableRow>
                     <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    rowsPerPageOptions={[5, 10, 25]}
                     count={rows}
                     rowsPerPage={rowsPerPage}
                     page={page}

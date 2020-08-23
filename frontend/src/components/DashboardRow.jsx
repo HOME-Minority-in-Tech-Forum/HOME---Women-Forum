@@ -8,16 +8,14 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 const mockData = require("../data.json");
 
-const DashboardRow = (props) => {
-  return props.supportingPrograms.map((program) => (
-    <TableRow key={props.name + Math.random()}>
-      <TableCell>{props.name}</TableCell>
+const DashboardRow = ({name, program}) => (
+    <TableRow >
+      <TableCell>{name}</TableCell>
       <TableCell>{program.programName}</TableCell>
       <TableCell>{program.location}</TableCell>
       <TableCell>{program.description}</TableCell>
       <TableCell>{program.programLink}</TableCell>
     </TableRow>
-  ));
-};
+  );
 
 export default DashboardRow;
