@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter, Link as RouterLink } from "react-router-dom";
+import axios from '../axios.js'
 import {
   makeStyles,
   Button,
@@ -12,7 +13,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import PageTitle from "../components/PageTitle";
-const mockData = require("../data.json");
 
 const useStyles = makeStyles((theme) => ({
   /* Cards */
@@ -56,14 +56,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Companies = (props) => {
-  const classes = useStyles();
+  const [companies, setCompanies] = useState([]);
 
+  useEffect(() => {
+    axios.get('/api/companies')
+    .then((response) => {
+      // console.log('inside componentdidmount', response)
+      setCompanies(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }, []);
+
+    const classes = useStyles();
   return (
     <React.Fragment>
       <Container maxWidth="lg">
         <PageTitle pageTitle="COMPANIES" />
         <Grid container spacing={4}>
-          {mockData.map((company) => (
+          {companies.map((company) => (
             <Grid item key={company.companyName} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
                 <CardMedia
@@ -76,6 +88,7 @@ const Companies = (props) => {
                     {company.companyName}
                   </Typography>
                   <Typography align="center">
+                    
                     Program Count: {company.supportingPrograms.length}
                   </Typography>
                   <div className={classes.buttons}>
@@ -127,6 +140,7 @@ const Companies = (props) => {
       </Container>
     </React.Fragment>
   );
-};
+}
+
 
 export default withRouter(Companies);
