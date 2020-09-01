@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
-import YouTube from "react-youtube";
-import { Typography } from "@material-ui/core";
+import React, { Fragment } from 'react';
+import YouTube from 'react-youtube';
+import { Typography } from '@material-ui/core';
 
 class Video extends React.Component {
   render() {
     const opts = {
-      height: "390",
-      width: "720",
+      height: '390',
+      width: '720',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 1,
