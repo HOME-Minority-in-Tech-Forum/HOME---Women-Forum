@@ -3,9 +3,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
-import admin from 'firebase-admin';
 
-require('dotenv').config();
+require('dotenv').config('../.env');
 
 // global.XMLHttpRequest = require('xhr2');
 
