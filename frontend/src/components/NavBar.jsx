@@ -149,7 +149,10 @@ const NavBar = (props) => {
                 {menuItems.map((menuItem) => {
                   const { menuTitle, pageURL } = menuItem;
                   return (
-                    <MenuItem key={menuTitle + Math.random()} onClick={() => handleMenuClick(pageURL)}>
+                    <MenuItem
+                      key={menuTitle}
+                      onClick={() => handleMenuClick(pageURL)}
+                    >
                       {menuTitle}
                     </MenuItem>
                   );
@@ -208,7 +211,7 @@ const NavBar = (props) => {
                 </ListItem>
               </Toolbar>
               <Box className={classes.toolbarRight}>
-                {/* <Link
+                <Link
                   variant="subtitle1"
                   color="inherit"
                   underline="none"
@@ -217,7 +220,7 @@ const NavBar = (props) => {
                   className={classes.rightButton}
                 >
                   LOGIN
-                </Link> */}
+                </Link>
 
                 <Button
                   href="#"
