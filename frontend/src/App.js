@@ -23,16 +23,17 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          {/* <NavBar /> */}
+          <NavBar />
           <div>
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <Route exact path="/login" component={LoginTest} />
               <Route exact path="/signup" component={SignUpTest} />
-              {/* <Route exact path="/learn" component={Learn} />
+              {/* <Route exact={true} path="/" component={LandingPage} />
+              <Route exact path="/learn" component={Learn} />
               <Route exact path="/programs" component={Programs} />
-              <Route exact path="/companies" component={Companies} /> */}
-              {/* <Route
+              <Route exact path="/companies" component={Companies} />
+              <Route
                 exact={true}
                 path="/companies/:id"
                 component={() => <CompanySpec />}

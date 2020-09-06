@@ -22,6 +22,14 @@ ReactDOM.render(
       </Fragment>
     </ThemeProvider>
   </React.StrictMode>,
+  // <React.StrictMode>
+  //   <ThemeProvider theme={theme}>
+  //     <Fragment>
+  //       <CssBaseline />
+  //       <App />
+  //     </Fragment>
+  //   </ThemeProvider>
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

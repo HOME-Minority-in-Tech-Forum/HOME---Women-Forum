@@ -7,7 +7,7 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const currentUser = useContext(UserContext);
 
-  console.log(currentUser);
+  console.log('AuthProvider ',currentUser);
 
   const [_, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);

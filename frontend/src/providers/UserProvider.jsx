@@ -5,7 +5,7 @@ export const UserContext = createContext({ user: null });
 
 function UserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-
+  console.log('UserProvider ', currentUser)
   // detect whenever the auth state changes
   // this will update the application state
   const onSubsribe = async () => {
