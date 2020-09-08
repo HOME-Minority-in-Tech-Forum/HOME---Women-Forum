@@ -13,7 +13,6 @@ const Signup = ({ history, displayName }) => {
         email.value,
         password.value
       );
-
       createMemberProfileDocument(user, {
         first: first.value,
         last: last.value,

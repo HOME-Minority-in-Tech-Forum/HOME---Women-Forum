@@ -38,21 +38,20 @@ export const createMemberProfileDocument = async (user, ...additionalData) => {
 
   // Getting a reference to the `user` collection where the member profile is located
   const userRef = firestore.doc(`user/${user.uid}`);
-
+  // const userRef = firestore.collection('user').doc(`${user.uid}`);
   // Now fetching the document at that location
   const snapshot = await userRef.get();
 
   if (!snapshot.exists) {
-    const { email, uid, first, last } = user;
+    const { email, uid} = user;
     const createdAt = new Date();
-
     // if this document doesn't exist this will create it
     try {
       await userRef.set({
         uid,
         email,
-        first: first,
-        last: last,
+        // first: first,
+        // last: last,
         createdAt,
         ...additionalData,
       });

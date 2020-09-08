@@ -12,7 +12,6 @@ const Home = () => {
 
   const [state, setState] = React.useState({
     signedIn: true,
-    // mentor: false,
   });
   const handleSignOut = () => {
     signOut()
@@ -31,7 +30,7 @@ const Home = () => {
       <h1>Home</h1>
 
 
-      {signedIn ? (
+      {signedIn && currentUser ? (
         <>
         <p>Welcome {auth.currentUser.displayName}! You are now signed-in!</p>
         <button onClick={() => handleSignOut()}>Sign out</button>
