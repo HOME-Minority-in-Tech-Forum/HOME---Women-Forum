@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router';
-import { auth, createMemberProfileDocument } from '../firebase';
+import { auth, createMemberProfileDocument, signInWithGoogle } from '../firebase';
 
 const Signup = ({ history, displayName }) => {
   const handleSignup = useCallback(async event => {
@@ -45,6 +45,12 @@ const Signup = ({ history, displayName }) => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
+      <p>or</p>
+        <button
+          onClick={() => {signInWithGoogle()}}
+        >
+          Sign In with Google
+        </button>
     </div>
   );
 };

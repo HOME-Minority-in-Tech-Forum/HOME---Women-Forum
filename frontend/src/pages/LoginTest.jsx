@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, signInWithGoogle } from '../firebase';
 import { AuthContext } from '../providers/AuthProvider';
 
 const LoginTest = ({ history }) => {

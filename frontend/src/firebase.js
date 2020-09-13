@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+import axios from 'axios';
 
 require('dotenv').config('../.env');
 
@@ -36,9 +37,22 @@ export const createMemberProfileDocument = async (user, ...additionalData) => {
     return;
   }
 
+  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+  
+    // Send token to your backend via HTTPS
+  axios.post('http://localhost:4000/token', {token: idToken})
+  })
+  .then(response => {
+    console.log('success');
+  })
+  .catch(function(error) {
+    // Handle error
+    console.error(error);
+  });
+
   // Getting a reference to the `user` collection where the member profile is located
   const userRef = firestore.doc(`user/${user.uid}`);
-  // const userRef = firestore.collection('user').doc(`${user.uid}`);
+
   // Now fetching the document at that location
   const snapshot = await userRef.get();
 
