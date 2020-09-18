@@ -319,7 +319,6 @@ const NavBar = (props) => {
               >
                 LOGIN
               </Link>
-
               <Button
                 href="#"
                 variant="contained"

@@ -7,11 +7,14 @@ import Scrollbar from "../components/Scrollbar";
 const mockVideos = require("../youtube.json");
 
 const Learn = (props) => {
+  const gridStyle = {
+    overflowY: 'auto',
+  }
   return (
     <Fragment>
       <Container maxWidth="lg">
         <PageTitle pageTitle="LEARN" />
-        <Grid container>
+        <Grid container style={gridStyle}>
           <Grid item xs={7}>
             <Video />
           </Grid>
