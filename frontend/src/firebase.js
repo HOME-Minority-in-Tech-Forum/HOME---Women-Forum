@@ -37,19 +37,39 @@ export const createMemberProfileDocument = async (user, ...additionalData) => {
     return;
   }
 
-  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
-  
-    // Send token to your backend via HTTPS
-  axios.post('http://localhost:4000/token', {token: idToken})
-  })
-  .then(response => {
-    console.log('success');
-  })
-  .catch(function(error) {
-    // Handle error
-    console.error(error);
-  });
+  firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+  .then(function(idToken) {
+    const client = axios.create({
+      baseURL: 'http://localhost:4000',
+      json: true
+    })
 
+    client({
+      method: 'post',
+      url: '/',
+      headers: {
+        'AuthToken': idToken
+      }
+    }).then((res) => {
+      // this.response = res.data.message
+      console.log('success');
+    }).catch((error) => {
+      // this.response = error
+    })
+    // Send token to your backend via HTTP
+  //   axios.post('http://localhost:4000/', {
+  //     headers: {
+  //       'AuthToken': `${idToken}`
+  //     }
+  //   })
+  //   .then(response => {
+  //     console.log('success');
+  //   })
+  //   .catch(function(error) {
+  //     // Handle error
+  //     console.error(error);
+  //   });
+  });
   // Getting a reference to the `user` collection where the member profile is located
   const userRef = firestore.doc(`user/${user.uid}`);
 
