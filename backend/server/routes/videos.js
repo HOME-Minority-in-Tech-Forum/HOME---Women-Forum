@@ -1,5 +1,5 @@
 const express = require('express');
-const firebase = require('../config/config.js');
+const {firebase} = require('../config/config.js');
 const router = express.Router()
 require('dotenv').config();
 

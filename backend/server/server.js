@@ -1,5 +1,7 @@
 const express = require('express');
-// const firebase = require('./config/config.js');
+const cors = require('cors')
+
+const {admin} = require('./config/config.js');
 require('dotenv').config();
 
 
@@ -12,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 
 //import routes
 const storageVideos = require('./routes/storageVideos');
@@ -19,9 +22,34 @@ const videoRequests = require('./routes/videoReqs');
 const videos = require('./routes/videos');
 const companiesInfo = require('./routes/company');
 
+//check authorization, if the current user is signed in
+// let authorized = true;
+const checkAuth = (req, res, next) => {
+    // console.log(req.headers.authtoken)
+    if (req.headers.authtoken) {
+        //idToken comes from the client app
+        admin.auth().verifyIdToken(req.headers.authtoken)
+        .then(function(decodedToken) {
+            let uid = decodedToken.uid;
+            console.log(uid)
+            next();
+        }).catch(function(error) {
+            // Handle error
+            res.status(403).send('Unauthorized');
+        });
+    } else {
+        console.log('hitting')
+        res.status(403).send('Unauthorized');
+    }
+
+}
+
+
 //landing page
-app.get("/", (req, res) => {
-    res.send("Welcome");
+app.use('/', checkAuth);
+
+app.post("/", (req, res) => {
+    res.send("Hello World!");
 });
 
 
@@ -39,4 +67,8 @@ app.use("/api/videosreq", videoRequests);
 app.use("/api/storage/videos", storageVideos);
 
 
+
+
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+// module.exports = app;

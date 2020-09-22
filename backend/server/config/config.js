@@ -1,4 +1,7 @@
 const firebase = require("firebase");
+const admin = require("firebase-admin");
+
+const serviceAccount = require("../../home-bb96d-firebase-adminsdk-fy693-6dd69598bf.json");
 
 // Required for side-effects
 require("firebase/firestore");
@@ -22,4 +25,11 @@ require('dotenv').config();
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-  module.exports = firebase;
+
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://home-bb96d.firebaseio.com"
+});
+
+  module.exports = {firebase, admin};
