@@ -1,5 +1,5 @@
 const express = require('express');
-const {firebase, admin} = require('../config/config.js');
+const {firebase} = require('../config/config.js');
 const router = express.Router()
 require('dotenv').config();
 
@@ -22,22 +22,22 @@ router.get("/", (req, res) => {
     })()
 });
 
-//accept and verify idToken, then post request to database
-router.post('/req', (req, res) => {
-    const idToken = req.body.token
+//add new data to database
+router.post('/videosreq', (req, res) => {
+    res.send("I can postttttt");
+    // let data = {
+    //     uid: uid,
+    //     content: req.body
+    // }
+    // db.collection("VideoReq").add(data)
+    // .then(function(docRef) {
+    //     console.log("Document written with ID: ", docRef.id);
+    // })
+    // .catch(function(error) {
+    //     console.error("Error adding document: ", error);
+    // });
+});
 
-    //idToken comes from the client app
-    admin.auth().verifyIdToken(idToken)
-    .then(function(decodedToken) {
-      let uid = decodedToken.uid;
-      // ...
-      console.log(uid)
-      res.send('success')
-    }).catch(function(error) {
-      // Handle error
-      console.error(error)
-    });
-    
-})
+
 
 module.exports = router;

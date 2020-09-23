@@ -19,13 +19,14 @@ app.use(cors())
 //import routes
 const storageVideos = require('./routes/storageVideos');
 const videoRequests = require('./routes/videoReqs');
+// const {videoRequests, postVideoReqs} = require('./routes/videoReqs');
 const videos = require('./routes/videos');
 const companiesInfo = require('./routes/company');
 
 //check authorization, if the current user is signed in
-// let authorized = true;
 const checkAuth = (req, res, next) => {
     // console.log(req.headers.authtoken)
+ 
     if (req.headers.authtoken) {
         //idToken comes from the client app
         admin.auth().verifyIdToken(req.headers.authtoken)
@@ -41,14 +42,13 @@ const checkAuth = (req, res, next) => {
         console.log('hitting')
         res.status(403).send('Unauthorized');
     }
-
+  
 }
 
 
 //landing page
-app.use('/', checkAuth);
-
-app.post("/", (req, res) => {
+app.use("/", checkAuth);
+app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
@@ -67,6 +67,11 @@ app.use("/api/videosreq", videoRequests);
 app.use("/api/storage/videos", storageVideos);
 
 
+//check authorization to all post routes that starts with /api/post
+// app.use('/api/post/', checkAuth);
+
+//post route for video request
+app.use("/api/post", videoRequests);
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

@@ -24,19 +24,34 @@ router.get("/", (req, res) => {
 
 
 //post a single document to collection info
+//this route is only available for personel of a company
 router.post('/', (req, res) => {
     const data = req.body;
     // res.send(data);
     db.collection("info").add(data)
-  .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-      console.error("Error adding document: ", error);
-  });
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
 });
 
+//update company infomation
+router.put('/', (req, res) => {
 
+    //need post id or name from req.body
+    const dbRef = db.collection("info").doc(req.body.name)
+
+
+    db.collection("info").update(data)
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+});
 
 
 module.exports = router;
