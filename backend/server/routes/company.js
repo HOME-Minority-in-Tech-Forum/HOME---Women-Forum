@@ -6,6 +6,7 @@ require('dotenv').config();
 const db = firebase.firestore();
 
 //get all info from all companies
+//this route is available for everyone accessing the website
 router.get("/", (req, res) => {
 
     (async function getMarkers() {
@@ -38,12 +39,15 @@ router.post('/', (req, res) => {
 });
 
 //update company infomation
+//this route is only available for personel of a company
 router.put('/', (req, res) => {
 
-    //need post id or name from req.body
+    //need post id or name of document from req.body
     const dbRef = db.collection("info").doc(req.body.name)
 
-
+    //data from req.body
+    //update elements in an array 
+    //data: {key: firebase.firestore.FieldValue.arrayUnion("values in here")}
     db.collection("info").update(data)
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
