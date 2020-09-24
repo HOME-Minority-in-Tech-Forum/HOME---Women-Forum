@@ -212,131 +212,131 @@ const NavBar = (props) => {
             </Menu>
           </>
         ) : (
-          <Fragment>
-            <Toolbar className={classes.toolbarMiddle}>
-              <ListItem component="div">
-                <ListItemText inset className={classes.nested}>
-                  <Link
-                    variant="subtitle1"
-                    component={RouterLink}
-                    to="/learn"
-                    color="textPrimary"
-                    underline="none"
-                  >
-                    <Typography
-                      align="center"
-                      style={{
-                        fontFamily: "Lato",
-                        fontWeight: 700,
-                        color: "#454550",
-                        fontSize: "1rem",
-                      }}
+            <Fragment>
+              <Toolbar className={classes.toolbarMiddle}>
+                <ListItem component="div">
+                  <ListItemText inset className={classes.nested}>
+                    <Link
+                      variant="subtitle1"
+                      component={RouterLink}
+                      to="/learn"
+                      color="textPrimary"
+                      underline="none"
                     >
-                      LEARN
+                      <Typography
+                        align="center"
+                        style={{
+                          fontFamily: "Lato",
+                          fontWeight: 700,
+                          color: "#454550",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        LEARN
                     </Typography>
-                  </Link>
-                </ListItemText>
+                    </Link>
+                  </ListItemText>
 
-                <ListItemText inset>
-                  <Link
-                    variant="subtitle1"
-                    component={RouterLink}
-                    to="/programs"
-                    color="inherit"
-                    underline="none"
-                  >
-                    <Typography
-                      align="center"
-                      style={{
-                        fontFamily: "Lato",
-                        fontWeight: 700,
-                        color: "#454550",
-                        fontSize: "1rem",
-                      }}
+                  <ListItemText inset>
+                    <Link
+                      variant="subtitle1"
+                      component={RouterLink}
+                      to="/programs"
+                      color="inherit"
+                      underline="none"
                     >
-                      PROGRAMS
+                      <Typography
+                        align="center"
+                        style={{
+                          fontFamily: "Lato",
+                          fontWeight: 700,
+                          color: "#454550",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        PROGRAMS
                     </Typography>
-                  </Link>
-                </ListItemText>
-                <ListItemText inset>
-                  <Link
-                    variant="subtitle1"
-                    component={RouterLink}
-                    to="/companies"
-                    color="inherit"
-                    underline="none"
-                  >
-                    <Typography
-                      align="center"
-                      style={{
-                        fontFamily: "Lato",
-                        fontWeight: 700,
-                        color: "#454550",
-                        fontSize: "1rem",
-                      }}
+                    </Link>
+                  </ListItemText>
+                  <ListItemText inset>
+                    <Link
+                      variant="subtitle1"
+                      component={RouterLink}
+                      to="/companies"
+                      color="inherit"
+                      underline="none"
                     >
-                      COMPANIES
+                      <Typography
+                        align="center"
+                        style={{
+                          fontFamily: "Lato",
+                          fontWeight: 700,
+                          color: "#454550",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        COMPANIES
                     </Typography>
-                  </Link>
-                </ListItemText>
-                <ListItemText inset>
-                  <Link
-                    variant="subtitle1"
-                    component={RouterLink}
-                    to="/connect"
-                    color="textPrimary"
-                    underline="none"
-                  >
-                    <Typography
-                      align="center"
-                      style={{
-                        fontFamily: "Lato",
-                        fontWeight: 700,
-                        color: "#454550",
-                        fontSize: "1rem",
-                      }}
+                    </Link>
+                  </ListItemText>
+                  <ListItemText inset>
+                    <Link
+                      variant="subtitle1"
+                      component={RouterLink}
+                      to="/connect"
+                      color="textPrimary"
+                      underline="none"
                     >
-                      CONNECT
+                      <Typography
+                        align="center"
+                        style={{
+                          fontFamily: "Lato",
+                          fontWeight: 700,
+                          color: "#454550",
+                          fontSize: "1rem",
+                        }}
+                      >
+                        CONNECT
                     </Typography>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-            </Toolbar>
-            <Box className={classes.toolbarRight}>
-              <Link
-                variant="subtitle1"
-                color="inherit"
-                underline="none"
-                component={RouterLink}
-                //   to="/login"
-                className={classes.rightButton}
-                style={{
-                  fontFamily: "Lato",
-                  fontWeight: 700,
-                  color: "#454550",
-                  fontSize: "1rem",
-                }}
-              >
-                LOGIN
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+              </Toolbar>
+              <Box className={classes.toolbarRight}>
+                <Link
+                  variant="subtitle1"
+                  color="inherit"
+                  underline="none"
+                  component={RouterLink}
+                  // to="/login"
+                  className={classes.rightButton}
+                  style={{
+                    fontFamily: "Lato",
+                    fontWeight: 700,
+                    color: "#454550",
+                    fontSize: "1rem",
+                  }}
+                >
+                  LOGIN
               </Link>
-              <Button
-                href="#"
-                variant="contained"
-                className={`${classes.rightButton} ${classes.signUpButton}`}
-                component={RouterLink}
-                //   to="/signup"
-                style={{
-                  fontFamily: "Lato",
-                  fontWeight: 700,
-                  color: "#454550",
-                  fontSize: "1rem",
-                }}
-              >
-                SIGN UP
+                <Button
+                  href="#"
+                  variant="contained"
+                  className={`${classes.rightButton} ${classes.signUpButton}`}
+                  component={RouterLink}
+                  // to="/signup"
+                  style={{
+                    fontFamily: "Lato",
+                    fontWeight: 700,
+                    color: "#454550",
+                    fontSize: "1rem",
+                  }}
+                >
+                  SIGN UP
               </Button>
-            </Box>
-          </Fragment>
-        )}
+              </Box>
+            </Fragment>
+          )}
         {/* </Toolbar> */}
       </AppBar>
     </div>
@@ -372,6 +372,14 @@ const menuItems = [
     menuTitle: "Contact",
     pageURL: "/contact",
   },
-]
+  {
+    menuTitle: "Login",
+    pageURL: "/login",
+  },
+  {
+    menuTitle: "Signup",
+    pageURL: "/signup",
+  },
+];
 
 // export default withRouter(NavBar)

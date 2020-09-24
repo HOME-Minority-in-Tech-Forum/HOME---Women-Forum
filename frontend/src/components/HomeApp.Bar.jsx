@@ -11,9 +11,9 @@ import {
   Button,
 } from "@material-ui/core"
 
-import { withRouter, Link as RouterLink } from "react-router-dom"
+import {withRouter, Link as RouterLink} from "react-router-dom"
 
-const MinAppBar = withStyles((theme) => ({
+const MinAppBar = withStyles(theme => ({
   root: {
     minHeight: "4rem",
     color: "#454550",
@@ -26,7 +26,7 @@ const MinAppBar = withStyles((theme) => ({
 // This will be used just incase we get a Logo and some branding
 const defaultBranding = (
   <Box>
-    <RouterLink to="/" style={{ color: "none", textDecoration: "none" }}>
+    <RouterLink to="/" style={{color: "none", textDecoration: "none"}}>
       <Button
         style={{
           fontFamily: "Lato, Iter, sans-serif, serif",
@@ -41,15 +41,16 @@ const defaultBranding = (
   </Box>
 )
 
-export const SlimToolBar = withStyles((theme) => ({
+export const SlimToolBar = withStyles(theme => ({
   root: {
     margin: 0,
     paddingLeft: 0,
     paddingRight: 0,
+    zIndex: 10,
   },
 }))(Toolbar)
 
-export function HomeAppBar({ brandingLogo, desktopMenu, mobileMenu, ...rest }) {
+export function HomeAppBar({brandingLogo, desktopMenu, mobileMenu, ...rest}) {
   const classes = useStyles()
   return (
     <MinAppBar {...rest} position="static" elevation={0}>
@@ -73,7 +74,7 @@ export function HomeAppBar({ brandingLogo, desktopMenu, mobileMenu, ...rest }) {
   )
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   desktopMenu: {
     "& > button": {
       marginRight: theme.spacing(2),
