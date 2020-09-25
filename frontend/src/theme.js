@@ -30,6 +30,17 @@ const theme = createMuiTheme({
         cursor: "pointer",
       },
     },
+    // MuiInputLabel: {
+    //   // Name of the component ⚛️ / style sheet
+    //   root: {
+    //     // Name of the rule
+    //     color: "#EA526F",
+    //     "&$focused": {
+    //       // increase the specificity for the pseudo class
+    //       color: "#EA526F",
+    //     },
+    //   },
+    // },
   },
 });
 
