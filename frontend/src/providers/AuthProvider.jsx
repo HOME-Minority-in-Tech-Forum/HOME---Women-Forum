@@ -1,21 +1,20 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { auth } from '../firebase';
-import { UserContext } from '../providers/UserProvider';
+import React, { memo, useEffect, useState } from "react";
+import { auth } from "../firebase";
 
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-  const currentUser = useContext(UserContext);
-
-  console.log('AuthProvider ',currentUser);
-
-  const [_, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // another useEffect to stop it from returning the Auth data twice
+  useEffect(() => {
+    setPending(false);
+  }, []);
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setPending(false);
     });
   }, []);
 
@@ -24,6 +23,8 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={currentUser}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };

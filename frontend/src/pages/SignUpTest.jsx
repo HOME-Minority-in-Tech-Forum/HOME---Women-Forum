@@ -1,27 +1,35 @@
-import React, { useCallback } from 'react';
-import { withRouter } from 'react-router';
-import { auth, createMemberProfileDocument, signInWithGoogle } from '../firebase';
+import React, { useCallback, useState } from "react";
+import { withRouter } from "react-router";
+import {
+  auth,
+  createMemberProfileDocument,
+  signInWithGoogle,
+} from "../firebase";
 
-const Signup = ({ history, displayName }) => {
-  const handleSignup = useCallback(async event => {
+const Signup = ({ history }) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = async (event) => {
     event.preventDefault();
-
-    const { first, last, email, password } = event.target.elements;
-
     try {
       const { user } = await auth.createUserWithEmailAndPassword(
-        email.value,
-        password.value
+        email,
+        password,
       );
-      createMemberProfileDocument(user, {
-        first: first.value,
-        last: last.value,
-      });
-      history.push('/');
+      createMemberProfileDocument(
+        // we're creating additional properties to store within the users related uid
+        user,
+        firstName,
+        lastName,
+      );
+      history.push("/");
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
-  }, []);
+  };
 
   return (
     <div>
@@ -29,28 +37,58 @@ const Signup = ({ history, displayName }) => {
       <form onSubmit={handleSignup}>
         <label>
           FirstName
-          <input name="first" type="text" placeholder="firstName" />
+          <input
+            value={firstName}
+            name="firstName"
+            type="text"
+            placeholder="firstName"
+            onChange={({ target }) => setFirstName(target.value)}
+            autoComplete="off"
+          />
         </label>
         <label>
           LastName
-          <input name="last" type="text" placeholder="lastName" />
+          <input
+            value={lastName}
+            name="lastName"
+            type="text"
+            placeholder="lastName"
+            onChange={({ target }) => setLastName(target.value)}
+            autoComplete="off"
+          />
         </label>
         <label>
           Email
-          <input name="email" type="email" placeholder="Email" />
+          <input
+            value={email}
+            name="email"
+            type="email"
+            placeholder="Email"
+            onChange={({ target }) => setEmail(target.value)}
+            autoComplete="off"
+          />
         </label>
         <label>
           Password
-          <input name="password" type="password" placeholder="Password" />
+          <input
+            value={password}
+            name="password"
+            type="password"
+            placeholder="Password"
+            onChange={({ target }) => setPassword(target.value)}
+            autoComplete="off"
+          />
         </label>
         <button type="submit">Sign Up</button>
       </form>
       <p>or</p>
-        <button
-          onClick={() => {signInWithGoogle()}}
-        >
-          Sign In with Google
-        </button>
+      <button
+        onClick={() => {
+          signInWithGoogle();
+        }}
+      >
+        Sign In with Google
+      </button>
     </div>
   );
 };

@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import 'normalize.css/normalize.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "normalize.css/normalize.css";
 
-import LandingPage from './pages/LandingPage';
-import Learn from './pages/Learn';
-import Programs from './pages/Programs';
-import Companies from './pages/Companies';
-import CompanySpec from './pages/CompanySpec';
-import Connect from './pages/Connect';
-import AuthForm from './components/AuthForm';
+import LandingPage from "./pages/LandingPage";
+import Learn from "./pages/Learn";
+import Programs from "./pages/Programs";
+import Companies from "./pages/Companies";
+import CompanySpec from "./pages/CompanySpec";
+import Connect from "./pages/Connect";
+import AuthForm from "./components/AuthForm";
 // import Login from "./pages/Login";
-import NotFoundPage from './pages/NotFoundPage';
-import NavBar from './components/NavBar';
-import { AuthProvider } from './providers/AuthProvider';
-import PrivateRoute from './components/PrivateRoute';
-import LoginTest from './pages/LoginTest';
-import SignUpTest from './pages/SignUpTest';
-import Home from './pages/Home';
+import NotFoundPage from "./pages/NotFoundPage";
+import NavBar from "./components/NavBar";
+import { AuthProvider } from "./providers/AuthProvider";
+import PrivateRoute from "./components/PrivateRoute";
+import LoginTest from "./pages/LoginTest";
+import SignUpTest from "./pages/SignUpTest";
+import Home from "./pages/Home";
 
 class App extends React.Component {
   render() {
@@ -26,7 +26,7 @@ class App extends React.Component {
           <NavBar />
           <div>
             <Switch>
-              <PrivateRoute exact path="/" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/login" component={LoginTest} />
               <Route exact path="/signup" component={SignUpTest} />
               {/* <Route exact={true} path="/" component={LandingPage} />

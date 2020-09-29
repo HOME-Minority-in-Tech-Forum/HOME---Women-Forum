@@ -1,20 +1,22 @@
-import React, { useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
+import React, { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-  const currentUser = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
-  console.log(currentUser);
+  /**
+   * TODO: The logic for this will be fixed once we have the UI Design implemented
+   */
 
   return (
     <Route
       {...rest}
-      render={routeProps =>
+      render={(routeProps) =>
         !!currentUser ? (
           <RouteComponent {...routeProps} />
         ) : (
-          <Redirect to={'/login'} />
+          <Redirect to={"/login"} />
         )
       }
     />
